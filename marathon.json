@@ -1,0 +1,44 @@
+{
+  "id": "/cerp-dev/migc7",
+  "cpus": 1,
+  "mem": 4092,
+  "instances": 1,
+  "constraints": [
+    [
+      "hostname",
+      "LIKE",
+      "172.22.30.[235][045678]"
+    ]
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "forcePullImage": true,
+      "image": "harbor.ajway.kr/platform/centos7:cerp-mig-4",
+      "parameters": [],
+      "privileged": false
+    },
+    "volumes": [],
+    "portMappings": [
+      {
+        "containerPort": 22,
+        "labels": {},
+        "name": "sshd",
+        "protocol": "tcp",
+        "servicePort": 0
+      }
+    ]
+  },
+  "networks": [
+    {
+      "name": "carian-prd",
+      "mode": "container"
+    }
+  ],
+  "portDefinitions": [],
+  "labels": {
+    "MARATHON_SINGLE_INSTANCE_APP": "true",
+    "HAPROXY_0_MODE": "tcp",
+    "HAPROXY_0_GROUP": "external"
+  }
+}
