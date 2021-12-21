@@ -2,9 +2,9 @@
 set -o xtrace
 
 # 통신
-echo "export http_proxy=\"http://172.22.30.28:3128\"" >> /root/.bash_profile 
-echo "export https_proxy=\"https://172.22.30.28:3128\"" >> /root/.bash_profile
-source /root/.bash_profile
+#echo "export http_proxy=\"http://172.22.30.28:3128\"" >> /root/.bash_profile 
+#echo "export https_proxy=\"https://172.22.30.28:3128\"" >> /root/.bash_profile
+#source /root/.bash_profile
 
 # sshd 구동
 #set -e
@@ -19,11 +19,10 @@ sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' 
 echo "export VISIBLE=now" >> /etc/profile
 cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
-
 echo '>>> STARTING SSH SERVER...'
 /usr/sbin/sshd -D 2>/dev/null &
 
 while true; do
 	echo "hello centos"
-	sleep 120
+	sleep 60
 done

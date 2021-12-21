@@ -1,10 +1,10 @@
-#FROM centos:centos7.6.1810
-FROM centos:7
+FROM centos:7.9
 
 RUN yum -y update
 
 RUN yum -y install perl \
-	openssh-server openssh-clients
+	openssh-server openssh-clients \
+	telnet nc wget net-tools bind-utils tcpdump 
 
 RUN mkdir /var/run/sshd \
 	&& ssh-keygen -A 
